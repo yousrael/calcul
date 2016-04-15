@@ -12,11 +12,6 @@ import static org.junit.Assert.*;
  * Created by HP on 15/04/2016.
  */
 public class LoginServiceTest {
-    //ArrayList<String> loginsExistants=new ArrayList<String>();
-    //String[] logins={"YELG"};
-
-   // LoginService lg=new LoginService(logins);
-   // this.loginsExistants = new ArrayList<String>(Arrays.asList());
 
     @Test
     public void testLoginExists() throws Exception {
