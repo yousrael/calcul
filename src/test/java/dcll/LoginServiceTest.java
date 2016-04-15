@@ -15,38 +15,39 @@ public class LoginServiceTest {
 
     @Test
     public void testLoginExists() throws Exception {
-        String[] logins={"YELG"};
+        String[] logins = {"YELG"};
 
-        LoginService lg=new LoginService(logins);
-       assertTrue(lg.loginExists("YELG"));
+        LoginService lg = new LoginService(logins);
+        assertTrue(lg.loginExists("YELG"));
     }
 
     @Test
     public void testAddLogin() throws Exception {
-             String[]logins={"YELG"};
-             LoginService lg=new LoginService(logins);
-             lg.addLogin("DUPS");
-             ArrayList<String> l=new ArrayList<String>();
-             l.add("YELG");
-             l.add("DUPS");
-             assertEquals(l,lg.findAllLogins());
+        String[] logins = {"YELG"};
+        LoginService lg = new LoginService(logins);
+        lg.addLogin("DUPS");
+        ArrayList<String> l = new ArrayList<String>();
+        l.add("YELG");
+        l.add("DUPS");
+        assertEquals(l, lg.findAllLogins());
     }
 
     @Test
     public void testFindAllLoginsStartingWith() throws Exception {
-        String[]logins={"YELG"};
-        LoginService lg=new LoginService(logins);
-        ArrayList<String> l=new ArrayList<String>();
+        String[] logins = {"YELG"};
+        LoginService lg = new LoginService(logins);
+        ArrayList<String> l = new ArrayList<String>();
         l.add("YELG");
-        assertEquals(l,lg.findAllLoginsStartingWith("Y"));
+        assertEquals(l, lg.findAllLoginsStartingWith("Y"));
+        assertEquals(l, lg.findAllLoginsStartingWith("YE"));
     }
 
     @Test
     public void testFindAllLogins() throws Exception {
-        String[]logins={"YELG"};
-        LoginService lg=new LoginService(logins);
-        ArrayList<String> l=new ArrayList<String>();
+        String[] logins = {"YELG"};
+        LoginService lg = new LoginService(logins);
+        ArrayList<String> l = new ArrayList<String>();
         l.add("YELG");
-        assertEquals(l,lg.findAllLogins());
+        assertEquals(l, lg.findAllLogins());
     }
 }

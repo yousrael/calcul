@@ -12,6 +12,7 @@ public class LoginGenerator {
      */
 
     private LoginService loginService;
+    
 
     /**
      * Construit un login generator
@@ -38,13 +39,24 @@ public class LoginGenerator {
      * @param prenom le prenom
      * @return le login genere
      */
-    public String generateLoginForNomAndPrenom(final String nom,final String prenom) {
-        String p = deAccent(prenom.substring(0, 1).toUpperCase());
-        String n = deAccent(nom.substring(0, 3).toUpperCase());
-        String login = p + n;
-        if (loginService.loginExists(login)) {
-            login = login + "1";
+    public String generateLoginForNomAndPrenom(final String nom, final String prenom) {
+        String login = "";
+        if (nom.length() < 3) {
+            String p = deAccent(prenom.substring(0, 1).toUpperCase());
+            String s = deAccent(nom.substring(0, 2).toUpperCase());
+            login = p + s;
+            if (loginService.loginExists(login)) {
+                login = login + "1";
+            }
+        } else if (nom.length() > 3) {
+            String p = deAccent(prenom.substring(0, 1).toUpperCase());
+            String n = deAccent(nom.substring(0, 3).toUpperCase());
+            login = p + n;
+            if (loginService.loginExists(login)) {
+                login = login + "1";
+            }
         }
+
         loginService.addLogin(login);
         return login;
     }
