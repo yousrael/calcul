@@ -16,6 +16,7 @@ public class LoginGeneratorTest {
     public void testGenerateLoginForNomAndPrenom() throws Exception {
         lg.generateLoginForNomAndPrenom("Durand","Paul");
         assertEquals("PDUR1",lg.generateLoginForNomAndPrenom("Durand","Paul"));
+        assertTrue(loginService.loginExists("PDUR1"));
 
     }
 
@@ -23,7 +24,7 @@ public class LoginGeneratorTest {
     public void testGenerateLoginForNomAndPrenom1() throws Exception {
         lg.generateLoginForNomAndPrenom("Rolling","Jean");
         assertEquals("JROL1",lg.generateLoginForNomAndPrenom("Rolling","Jean"));
-
+        assertTrue(loginService.loginExists("JROL1"));
 
     }
 
@@ -31,7 +32,7 @@ public class LoginGeneratorTest {
     public void testGenerateLoginForNomAndPrenom2() throws Exception {
         lg.generateLoginForNomAndPrenom("Dùrand","Paul");
         assertEquals("PDUR1",lg.generateLoginForNomAndPrenom("Dùrand","Paul"));
-
+        assertTrue(loginService.loginExists("PDUR1"));
 
     }
 
